@@ -15,8 +15,8 @@ This script will try to use the `AdministratorAccess` managed IAM policy by defa
 
 Examples:
 ```bash
-$ ./aws-create-iam-user.sh "myuser" "mycomplicatedpassword" "arn:aws:iam::aws:policy/AmazonS3FullAccess"
-$ ./aws-create-iam-user.sh "myuser" "mycomplicatedpassword" # Uses AdministratorAccess
+$ ./aws-create-iam-user.sh "myuser" "mypassword" "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+$ ./aws-create-iam-user.sh "myuser" "mypassword" # Uses AdministratorAccess
 ```
 
 ### aws-create-access-key
@@ -29,6 +29,8 @@ $ ./aws-create-access-key myiamuser
 ```
 
 ## GCP
+
+To use the GCP scripts you must have [GCP CLI](https://cloud.google.com/sdk/docs/install?hl=pt-br) installed and authenticated (with `gcloud init` or `gcloud auth login` for instance).
 
 ### gcp-invite-account
 
@@ -43,13 +45,27 @@ $ ./gcp-invite-account.sh my-project-123 "myemail@gmail.com" # Uses roles/editor
 ```
 
 ## Azure
-TODO
+
+To use the Azure scripts you must have [Azure CLI](https://learn.microsoft.com/pt-br/cli/azure/install-azure-cli) installed and authenticated (with `az login` for instance).
+
+### az-create-aad-user
+
+Creates a new user in Azure Active Directory using the specified role.
+
+If a role is not specified, it'll try to use the `Owner` role for the current subscription by default.
+
+Examples:
+```bash
+$ ./az-create-aad-user.sh "myemail@gmail.com" "mypassword" "myname" "Reader"
+$ ./az-create-aad-user.sh "myemail@gmail.com" "mypassword" "myname" # Uses the "Owner" role by default
+```
 
 # TODO
-* Make scripts for persistence with cross-account sharing of resources
 * Add more options to existing scripts
 * Make powershell version of scripts
-* Test scripts to make sure it's working properly
+* Test scripts more to make sure they're working properly
+* Idea - Make scripts for persistence with cross-account sharing of resources
+* Idea - Long-term persistence by adding custom identity providers / custom signup flows
 
 # License
 The MIT License (MIT)

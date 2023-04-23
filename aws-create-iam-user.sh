@@ -21,7 +21,7 @@ echo "[+] Creating user..."
 user_arn=$(aws iam create-user --user-name "$username" --output text --query 'User.Arn')
 
 echo "[+] Creating login profile..."
-aws iam create-login-profile --user-name "$username" --password "$password" --password-reset-required
+aws iam create-login-profile --user-name "$username" --password "$password" --no-password-reset-required
 
 echo "[+] Attaching user policy..."
 aws iam attach-user-policy --policy-arn "$userpolicy" --user-name "$username"
