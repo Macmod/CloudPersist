@@ -64,8 +64,10 @@ $ ./az-create-aad-user.sh "myemail@gmail.com" "mypassword" "myname" # Uses the "
 * Add more options to existing scripts
 * Make powershell version of scripts
 * Test scripts more to make sure they're working properly
+* Idea - Execute persistence script in existing AWS EC2 / Azure VMs / GCP Compute Instances (similarly to T1525 but on running instances)
+* Idea - Provisioning of malicious event-triggered AWS Lambda/GCP Cloud Function/Azure Function (T1546)
 * Idea - Make scripts for persistence with cross-account sharing of resources
-* Idea - Long-term persistence by adding custom identity providers / custom signup flows
+* Idea - Long-term persistence by adding custom identity providers / custom signup flows (T1556)
 
 # License
 The MIT License (MIT)
