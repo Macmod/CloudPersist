@@ -44,6 +44,15 @@ $ ./gcp-invite-account.sh my-project-123 "myemail@gmail.com" "roles/viewer"
 $ ./gcp-invite-account.sh my-project-123 "myemail@gmail.com" # Uses roles/editor
 ```
 
+### gcp-gce-exec-ssh
+
+Runs the specified script on a Google Compute Instance via SSH (no need to provide keys, they will be generated and inserted in the VM by `gcloud cli` automatically through the API).
+
+To execute this script you must first obtain the name of your target VM (with `gcloud compute instances list` for example). Then run:
+```bash
+$ ./gcp-gce-exec-ssh.sh "<instance name>" "<command to run>"
+```
+
 ## Azure
 
 To use the Azure scripts you must have [Azure CLI](https://learn.microsoft.com/pt-br/cli/azure/install-azure-cli) installed and authenticated (with `az login` for instance).
