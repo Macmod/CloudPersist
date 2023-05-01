@@ -60,6 +60,23 @@ $ ./az-create-aad-user.sh "myemail@gmail.com" "mypassword" "myname" "Reader"
 $ ./az-create-aad-user.sh "myemail@gmail.com" "mypassword" "myname" # Uses the "Owner" role by default
 ```
 
+### az-vm-exec-runcommand
+
+Runs the specified Shell (unix)/PowerShell (windows) command on a list of VMs. Can be used to easily backdoor multiple VMs at once.
+
+To execute this script you must first obtain the resource IDs for your target VMs (with `az vm list` for instance). Then specify them *separated with spaces and enclosed in quotes* in the 1st argument of the script:
+
+```bash
+$ ./az-vm-exec-runcommand.sh "<resource IDs>" "<command to run>" # For Shellscript
+$ ./az-vm-exec-runcommand.sh "<resource IDs>" "<command to run>" windows # For PowerShell
+```
+
+The command to run can also be stored in a file and specified with an `@`. Example:
+
+```bash
+$ ./az-vm-exec-runcommand.sh "/subscriptions/<SUBSCRIPTIONID1>/resourceGroups/<RESOURCEGROUP1>/providers/Microsoft.Compute/virtualMachines/<VMNAME1> /subscriptions/<SUBSCRIPTIONID2>/resourceGroups/<RESOURCEGROUP2>/providers/Microsoft.Compute/virtualMachines/<VMNAME2>" @persistencescript.sh
+```
+
 # TODO
 * Add more options to existing scripts
 * Make powershell version of scripts
