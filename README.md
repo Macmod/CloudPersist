@@ -69,6 +69,19 @@ $ ./az-create-aad-user.sh "myemail@gmail.com" "mypassword" "myname" "Reader"
 $ ./az-create-aad-user.sh "myemail@gmail.com" "mypassword" "myname" # Uses the "Owner" role by default
 ```
 
+### az-create-aad-service-principal
+
+Creates a new service principal in Azure Active Directory using the specified role.
+
+If a role is not specified, it'll try to use the `Owner` role for the current subscription by default.
+
+Examples:
+```bash
+$ ./az-create-aad-service-principal.sh "myname" "Reader" "/subscriptions/<subscription ID>"
+$ ./az-create-aad-service-principal.sh "myname" "Reader" # Uses the current subscription by default
+$ ./az-create-aad-service-principal.sh "myname" # Uses the "Owner" role of the current subscription by default
+```
+
 ### az-vm-exec-runcommand
 
 Runs the specified Shell (unix)/PowerShell (windows) command on a list of VMs. Can be used to easily backdoor multiple VMs at once.
