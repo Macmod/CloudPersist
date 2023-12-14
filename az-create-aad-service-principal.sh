@@ -29,3 +29,6 @@ az ad sp create-for-rbac --name "$username" --role "$role" --scopes "$scopes"
 # To assign other roles to your SP, get the object ID of your service principal and then run:
 # $ az role assignment create --assignee <Target object ID> --role "<Role name or ID" --scope "/subscriptions/<subscription ID>"
 # To find other roles use "az role definitions list"
+
+# Note that it's believed that organizational roles can't be assigned via Azure CLI,
+# but they can by using the MSOL Powershell "Add-MsolRoleMember" cmdlet or via the UI.
